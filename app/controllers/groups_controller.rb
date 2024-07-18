@@ -11,7 +11,13 @@ class GroupsController < ApplicationController
 
   # GET /groups/1
   def show
-    render json: @group
+    if stale?(last_modified: @group.updated_at, public: true)
+      render json: @group
+    end
+    #@post = Post.find(params[:id])
+    #if stale?(last_modified: @post.updated_at, public: true)
+    #  render json: @post
+    #end
   end
 
   # POST /groups
@@ -37,6 +43,11 @@ class GroupsController < ApplicationController
   # DELETE /groups/1
   def destroy
     @group.destroy
+  end
+
+  IMAGES_PATH = File.join(Rails.root, "public", "images")
+  def download
+    send_file(File.join(IMAGES_PATH, "image.png"))
   end
 
   private

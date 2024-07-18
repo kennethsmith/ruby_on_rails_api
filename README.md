@@ -48,3 +48,6 @@ rails conosle :
     Group.create(name: "Rails Founders")
     Group.create(name: "Rails Contributors")
 
+rails middleware
+
+bundle install

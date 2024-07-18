@@ -10,6 +10,8 @@ module RubyOnRailsApi
   class Application < Rails::Application
     config.api_only = true
 
+    config.action_dispatch.rack_cache = true
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.1
 
