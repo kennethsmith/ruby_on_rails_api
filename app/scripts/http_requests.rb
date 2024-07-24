@@ -90,6 +90,46 @@ class Dummy
     end
 
 
+    def self.user_post
+        puts '*** post ***\n'
+        conn = Faraday.new(
+            url: 'http://localhost:3000',
+            headers: {'Content-Type' => 'application/json'}
+        )
+
+        response = conn.post('/users') do |req|
+            req.body = {
+                email: 'user' + Time.now.strftime('%F') + '@email.com',
+                username: 'chunky bacon - ' + Time.now.strftime('%F'),
+                password: 'password',
+                image: '/assets/picture.png'
+            }.to_json
+        end
+        # => POST http://httpbingo.org/post?param=1&limit=100
+
+        Dummy.print(response)
+    end
+
+    def self.prompt_post
+        puts '*** post ***\n'
+        conn = Faraday.new(
+            url: 'http://localhost:3000',
+            headers: {'Content-Type' => 'application/json'}
+        )
+
+        response = conn.post('/prompts') do |req|
+            req.body = {
+                content: 'chunky bacon - ' + Time.now.strftime('%F'),
+                tag: 'tag',
+                username: 'you would fetch this.',
+                image: 'you would fetch this.',
+                user_id: 1
+            }.to_json
+        end
+        # => POST http://httpbingo.org/post?param=1&limit=100
+
+        Dummy.print(response)
+    end
 
 end
 
@@ -100,3 +140,5 @@ Dummy.post
 Dummy.put
 Dummy.patch
 Dummy.delete
+Dummy.user_post
+Dummy.prompt_post

@@ -45,8 +45,9 @@ gem "bootsnap", require: false
 # gem "image_processing", "~> 1.2"
 
 
-gem "rack-cache"
+gem 'rack-cache'
 gem 'faraday'
+gem 'bcrypt'
 
 
 group :development, :test do
