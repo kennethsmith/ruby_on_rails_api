@@ -48,6 +48,7 @@ gem "bootsnap", require: false
 gem 'rack-cache'
 gem 'faraday'
 gem 'bcrypt'
+gem "rexml", "~> 3.4.4"
 
 
 group :development, :test do
