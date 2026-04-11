@@ -49,6 +49,7 @@ gem 'rack-cache'
 gem 'faraday'
 gem 'bcrypt'
 gem "rexml", "~> 3.4.4"
+gem "addressable", "~> 2.9.0"
 
 
 group :development, :test do
