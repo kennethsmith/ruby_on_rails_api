@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   
-  get 'errors/not_found'
-  get 'errors/internal_server_error'
+  get 'errors/not_found', to: 'errors#not_found'
+  get 'errors/internal_server_error', to: 'errors#internal_server_error'
   resources :groups
   resources :prompts
   resources :users, only: [:create]
