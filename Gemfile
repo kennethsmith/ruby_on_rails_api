@@ -46,7 +46,7 @@ gem "bootsnap", require: false
 
 
 gem 'rack-cache'
-gem 'faraday'
+gem 'faraday', '~> 2.14.1'
 gem 'bcrypt'
 gem "rexml", "~> 3.4.4"
 gem "addressable", "~> 2.9.0"
